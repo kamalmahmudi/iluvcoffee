@@ -1,0 +1,29 @@
+@host=http://localhost:5000
+@coffeeId=1
+
+###
+GET {{host}}/coffees HTTP/1.1
+
+###
+GET {{host}}/coffees/{{coffeeId}} HTTP/1.1
+
+###
+POST {{host}}/coffees HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Coffee #3",
+    "brand": "Nest",
+    "flavors": ["caramel", "vanilla"]
+}
+
+###
+PATCH {{host}}/coffees/{{coffeeId}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "flavors": ["macha"]
+}
+
+###
+DELETE {{host}}/coffees/{{coffeeId}} HTTP/1.1
