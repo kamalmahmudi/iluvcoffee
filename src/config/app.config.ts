@@ -1,5 +1,6 @@
 export default () => ({
   environment: process.env.NODE_ENV || 'development',
+  apiKey: 'expected_key',
   database: {
     host: process.env.DATABASE_HOST,
     port: parseInt(process.env.DATABASE_PORT, 10) || 3306,

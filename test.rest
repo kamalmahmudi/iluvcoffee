@@ -1,11 +1,13 @@
 @host=http://localhost:5000
 @coffeeId=1
+@authHeader=expected_key
 
 ###
 GET {{host}}/coffees HTTP/1.1
 
 ###
 GET {{host}}/coffees/{{coffeeId}} HTTP/1.1
+Authorization: {{authHeader}}
 
 ###
 POST {{host}}/coffees HTTP/1.1

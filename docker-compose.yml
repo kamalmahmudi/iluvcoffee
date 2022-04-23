@@ -9,6 +9,8 @@ services:
       - MARIADB_PASSWORD=superrahasia
       - MARIADB_RANDOM_ROOT_PASSWORD=true
       - MARIADB_DATABASE=nest
+    volumes:
+      - ./_volumes/dev-db:/var/lib/mysql
     networks:
       - nest
   test-db:
@@ -20,6 +22,8 @@ services:
       - MARIADB_PASSWORD=superrahasia
       - MARIADB_RANDOM_ROOT_PASSWORD=true
       - MARIADB_DATABASE=nest
+    volumes:
+      - ./_volumes/test-db:/var/lib/mysql
     networks:
       - nest
 networks:

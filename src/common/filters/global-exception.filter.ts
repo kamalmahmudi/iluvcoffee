@@ -32,6 +32,7 @@ export class GlobalExceptionFilter<T> implements ExceptionFilter {
     console.log(exceptionLog)
     console.log('==========')
     console.log(exceptionLog.message)
+    console.log('==========')
     response.status(500).send({
       statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
       message: 'Internal server error'
