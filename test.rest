@@ -11,10 +11,20 @@ Authorization: {{authHeader}}
 
 ###
 POST {{host}}/coffees HTTP/1.1
+Authorization: {{authHeader}}
 Content-Type: application/json
 
 {
-    "name": "Coffee #3",
+    "name": "Coffee #3"
+}
+
+###
+POST {{host}}/coffees HTTP/1.1
+Authorization: {{authHeader}}
+Content-Type: application/json
+
+{
+    "name": "Coffee #4",
     "brand": "Nest",
     "flavors": ["caramel", "vanilla"]
 }
