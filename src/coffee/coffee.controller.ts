@@ -10,11 +10,13 @@ import {
   Post,
   Query
 } from '@nestjs/common'
+import { ApiForbiddenResponse, ApiTags } from '@nestjs/swagger'
 import { Public } from 'src/common/decorators/public.decorator'
 import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto'
 import { CoffeeService } from './coffee.service'
 import { CreateCoffeeDto, UpdateCoffeeDto } from './dto'
 
+@ApiTags('coffee')
 @Controller('coffees')
 export class CoffeeController {
   constructor(private readonly coffeeService: CoffeeService) {}
@@ -22,10 +24,12 @@ export class CoffeeController {
   @Public()
   @Get()
   async findAll(@Query() paginationQuery: PaginationQueryDto) {
-    await new Promise((resolve) => setTimeout(resolve, 5000))
     return this.coffeeService.findAll(paginationQuery)
   }
 
+  @ApiForbiddenResponse({
+    description: 'Error: Forbidden'
+  })
   @Get(':id')
   findOne(@Param('id') id: number) {
     return this.coffeeService.findOne(id)
