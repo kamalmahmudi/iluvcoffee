@@ -10,7 +10,8 @@ export default () => ({
     logging:
       process.env.DATABASE_LOGGING &&
       !['0', 'false'].includes(process.env.DATABASE_LOGGING),
-    synchronize: false,
+    autoLoadEntities: process.env.NODE_ENV === 'test',
+    synchronize: process.env.NODE_ENV === 'test',
     entities: ['dist/**/*.entity.js'],
     migrations: ['dist/migrations/**/*.js']
   }
